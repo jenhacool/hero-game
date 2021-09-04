@@ -80,6 +80,15 @@ contract NFT is ERC721, Ownable {
         
         _incrementTokenId();
     }
+
+    function setBnbFee(
+        uint bnbFee_
+    )
+        external
+        onlyUpgrader
+    {
+        random.setBnbFee(bnbFee_);
+    }
     
     function upgrade(uint256 _tokenId, uint8 _star) public onlyUpgrader {
         Hero storage hero = heros[_tokenId];
